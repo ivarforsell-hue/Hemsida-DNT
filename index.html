@@ -1,21 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DNT Game Hub 🎮</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <h1>Detta är vår hemsida</h1>
-    <div class="hemsidor">
-        <p>Testing for branches</p>
-        <a href ="school.html", target="_blank", id ="hemsida1">Skola</a>
-        <a href ="", id ="hemsida2">placeholder 2</a>
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- HERO -->
+    <header class="hero">
+        <h1 class="glitch" data-text="DNT GAME HUB">DNT GAME HUB</h1>
+        <p class="subtitle">Välj ett spel och kör hårt! 🚀</p>
+        <div class="score-banner">🏆 Totala poäng: <span id="total-score">0</span></div>
+    </header>
+
+    <!-- NAV -->
+    <nav class="top-nav">
+        <a href="school.html" target="_blank">📚 Skola</a>
+        <a href="#games">🎮 Spel</a>
+        <a href="#leaderboard">🏆 Topplista</a>
+    </nav>
+
+    <!-- GAME GRID -->
+    <section id="games" class="game-section">
+        <h2 class="section-title">Välj ditt spel</h2>
+        <div class="game-grid">
+            <div class="game-card" onclick="openGame('snake')">
+                <div class="game-icon">🐍</div>
+                <h3>Snake</h3>
+                <p>Klassikern! Ät äpplen och väx.</p>
+                <span class="badge">Klassiker</span>
+            </div>
+            <div class="game-card" onclick="openGame('memory')">
+                <div class="game-icon">🧠</div>
+                <h3>Memory</h3>
+                <p>Hitta alla matchande par!</p>
+                <span class="badge hot">Populärt</span>
+            </div>
+            <div class="game-card" onclick="openGame('reaction')">
+                <div class="game-icon">⚡</div>
+                <h3>Reaktionstest</h3>
+                <p>Hur snabb är du egentligen?</p>
+                <span class="badge fire">Snabbt</span>
+            </div>
+            <div class="game-card" onclick="openGame('whack')">
+                <div class="game-icon">🔨</div>
+                <h3>Whack-a-Mole</h3>
+                <p>Smasha mullvadarna!</p>
+                <span class="badge">Kul</span>
+            </div>
+            <div class="game-card" onclick="openGame('tictactoe')">
+                <div class="game-icon">❌⭕</div>
+                <h3>Tic-Tac-Toe</h3>
+                <p>Tre-i-rad mot datorn!</p>
+                <span class="badge hot">2 Spelare</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- GAME MODALS -->
+    <div id="game-overlay" class="game-overlay hidden" onclick="closeGameOutside(event)">
+        <div class="game-modal">
+            <button class="close-btn" onclick="closeGame()">✖</button>
+            <div id="game-container"></div>
+        </div>
     </div>
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="leaderboard-section">
+        <h2 class="section-title">🏆 Topplista</h2>
+        <div class="leaderboard-grid" id="leaderboard-grid"></div>
+    </section>
+
+    <footer>
+        <p>DNT Game Hub &copy; 2026 — Byggd med 💜 och JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
